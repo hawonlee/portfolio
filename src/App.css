@@ -1,0 +1,36 @@
+:root {
+  --red: #6B0000;
+  --pink: #FFFCFE;
+  --light-pink: #f2eaf0;
+  --transparent: #ffffff00;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 300;
+  font-style: normal;
+  color: var(--red);
+  width: 100vw;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  justify-content: space-between;
+  background-image: url('/src/assets/Untitled-1.png');
+  padding: 20px;
+}
+
+.noise {
+
+  background-image: url(/assets/grainy.png);
+  background: rgb(144, 138, 138);
+}
+
+/* App.css */
+.grainy-background {
+  background-color: #f0f0f0; /* Base background color */
+  background-image: 
+    radial-gradient(circle, rgba(0, 0, 0, 0.05) 1%, transparent 1%), 
+    radial-gradient(circle, rgba(0, 0, 0, 0.03) 1%, transparent 1%);
+  background-size: 2px 2px, 3px 3px;
+  width: 100vw;
+  height: 100vh;
+}
