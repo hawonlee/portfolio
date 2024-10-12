@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
+
+.menu-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--small);
+    border-bottom: 1px solid var(--border-gray);
+    background-color: var(--almost-white);
+    position: sticky;
+    top: 0;
+}
+
+.vertical-container {
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.logo-container {
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: right;
+}
+
+.time-container {
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.text {
+    height: 100%;
+}
+
+.korean-text {
+    font-family: "Gowun Batang", serif;
+    font-weight: 400;
+    font-size: 15px;
+    font-style: normal;
+}
+
+.small-text {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.time {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.fade-in {
+    opacity: 1;
+    pointer-events: none;
+}
+
+.menu {
+    --marquee-width: 200px;
+    --offset: 0px;
+    --move-initial: calc(-25% + var(--offset));
+    --move-final: calc(-50% + var(--offset));
+    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    transition: 200ms;
+}
+
+.menu:hover {
+    color:var(--light-gray);
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.marquee {
+    position: relative;
+    width: var(--marquee-width);
+    overflow: hidden;
+}
+
+.marquee__inner {
+    width: fit-content;
+    display: flex;
+    position: relative;
+    transform: translate3d(var(--move-initial), 0, 0);
+    animation: marquee 10s linear infinite;
+    animation-play-state: paused;
+    opacity: 0;
+    transition: opacity 0.1s;
+}
+
+.marquee .marquee__inner {
+    animation-play-state: running;
+    opacity: 1;
+    transition-duration: 0.4s;
+}
+
+.marquee span {
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 300;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(var(--move-initial), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--move-final), 0, 0);
+    }
+}

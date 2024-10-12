@@ -1,0 +1,49 @@
+.project-container {
+    margin-top: 30px;
+    height: 300px;
+    width: 70%;
+    display: flex;
+    justify-content: left;
+}
+
+.image-container {
+    width: 40%;
+    animation: appear 5s linear;
+}
+
+.project-text-container {
+    padding: 20px;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+img {
+    width: 400px;
+    height: 300px;
+    object-fit: contain;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+desc-text {
+    font-size: var(--small);
+    /* border-bottom: 1px solid var(--border-gray); */
+}
+
+title-text {
+    font-size: var(--large);
+}

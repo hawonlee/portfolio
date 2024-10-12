@@ -1,0 +1,144 @@
+/* Preloader background (white screen) */
+.preloader-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--almost-white);
+    z-index: 9999;
+    transition: opacity 1s ease-out 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Sliding div starts in the center */
+.sliding-box {
+    position: absolute;
+    background-color: rgba(211, 211, 211, 0);
+    text-align: center;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    z-index: 10000;
+    /* Ensure it's above the fading preloader */
+}
+
+.star-box {
+    opacity: 0;
+    /* transition: opacity 1s ease-in-out; */
+    position: absolute;
+    background-color: rgba(211, 211, 211, 0);
+    transform: translate(-50%, -50%);
+    /* transition: opacity 1s ease-out; */
+    left: 50%;
+    top: 50%;
+    z-index: 10000;
+    /* Ensure it's above the fading preloader */
+}
+
+.star-fade-in {
+    opacity: 1;
+    transition: opacity 1s ease-in;
+}
+
+.star-fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+/* Slide the box to a specific position */
+.slide-into-position {
+    transform: translateX(-50%) translateY(-1830%);
+    /* transform: translate(-50%, calc(-50% - 400px)); */
+}
+
+.slide-box {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    transition: all 1s ease-out;
+}
+
+.slide {
+    top: 100px;
+    /* Adjust this value to your desired distance from top */
+    transform: translateX(-50%);
+    /* Only translate horizontally now */
+    position: sticky;
+    /* Change to sticky for scroll behavior */
+}
+
+.sticky {
+    position: sticky;
+    /* Change to sticky when in final position */
+    top: 20px;
+}
+
+.menu1 {
+    position: sticky;
+    --marquee-width: 200px;
+    --offset: 0px;
+    --move-initial: calc(-25% + var(--offset));
+    --move-final: calc(-50% + var(--offset));
+    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    transition: 200ms;
+}
+
+.menu:hover {
+    color: var(--light-gray);
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.marquee {
+    position: relative;
+    width: var(--marquee-width);
+    overflow: hidden;
+}
+
+.marquee__inner {
+    width: fit-content;
+    display: flex;
+    position: relative;
+    transform: translate3d(var(--move-initial), 0, 0);
+    animation: marquee 10s linear infinite;
+    animation-play-state: paused;
+    opacity: 0;
+    transition: opacity 0.1s;
+}
+
+.marquee .marquee__inner {
+    animation-play-state: running;
+    opacity: 1;
+    transition-duration: 0.4s;
+}
+
+.marquee span {
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 300;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(var(--move-initial), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--move-final), 0, 0);
+    }
+}
